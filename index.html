@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Caravan Chronicle | Circus Municipality</title>
+    <meta name="description" content="Tracking and fixing the Circus of Wonders' daily municipal troubles. A premium grievance tracker for the traveling city-state.">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="theme--dark">
+    <!-- Navigation -->
+    <nav class="navbar glass">
+        <div class="nav-container">
+            <div class="nav-logo" id="nav-logo">
+                <div class="logo-icon"></div>
+                <span class="logo-text">CRVN<span>CHRONICLE</span></span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#stats" class="nav-link" data-view="v-public-portal">Transparency</a></li>
+                <li class="auth-only citizen-only"><a href="#my-tickets" class="nav-link" data-view="v-citizen-dashboard">My Portal</a></li>
+                <li class="auth-only staff-only admin-only"><a href="#municipal" class="nav-link" data-view="v-staff-dashboard">Municipal Desk</a></li>
+                <li class="guest-only"><button id="btn-login" class="btn btn--primary">Citizen Login</button></li>
+                <li class="auth-only user-badge-container">
+                    <div class="user-badge" id="user-display-name">---</div>
+                    <button id="btn-logout" class="btn btn--ghost icon-btn"><i data-lucide="log-out"></i></button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main View Container -->
+    <main id="app-container">
+        <!-- Views will be injected here or toggled by JS -->
+        
+        <!-- Hero Section (v-landing) -->
+        <section id="v-landing" class="view active">
+            <div class="hero-content">
+                <h1 class="fade-in">The Caravan Chronicle</h1>
+                <p class="hero-subtitle fade-in delay-1">Tracking and fixing the city's daily troubles. Ensuring the show goes on, seamlessly.</p>
+                <div class="hero-actions fade-in delay-2">
+                    <button class="btn btn--xl btn--primary" id="btn-hero-report">Submit a New Grievance</button>
+                    <button class="btn btn--xl btn--outline" id="btn-hero-stats">Live City Stats</button>
+                </div>
+            </div>
+            <div class="hero-overlay"></div>
+        </section>
+
+        <!-- Dynamic Views -->
+        <section id="v-auth" class="view"></section>
+        <section id="v-citizen-dashboard" class="view"></section>
+        <section id="v-staff-dashboard" class="view"></section>
+        <section id="v-public-portal" class="view"></section>
+
+    </main>
+
+    <!-- Modals -->
+    <div id="modal-container" class="modal-overlay hidden">
+        <div class="modal-content glass">
+            <button class="modal-close" id="modal-close"><i data-lucide="x"></i></button>
+            <div id="modal-body"></div>
+        </div>
+    </div>
+
+    <!-- Notification Toast -->
+    <div id="toast-container"></div>
+
+    <script src="assets/js/store.js"></script>
+    <script src="assets/js/ui.js"></script>
+    <script src="assets/js/app.js"></script>
+</body>
+</html>
